@@ -1,14 +1,14 @@
 # MysqlOrm
 
-Mysql数据库映射，请先正确安装并运行 **mysql.8** 服务，如遇问题欢迎骚扰: <x135356@sina.com>
+Mysql数据库映射，可配合[135356/web_server](https://github.com/135356/web_server)搭建网站，请先正确安装并运行 **mysql.8** 服务
 > 发布区 [Releases](https://github.com/135356/mysqlorm/releases)
 
-### 依赖关系
-> [135356/bb](https://github.com/135356/bb)
+### 依赖mysql-8
+> [最好是mysql-8.3.0-linux-glibc2.28-x86_64](https://www.mysql.com)
 
 ### 基本信息配置文件
 ````c++
-文件路径：./build/bb_mysqlorm_config.conf
+文件路径：./build/13535_mysqlorm.conf
 配置信息："host": "主机","user": "用户名","password": "密码","port": "端口号","unix_socket": "连接方式","client_flag": "标志位","character":"字符集","read_timeout":"读取超时时间","write_timeout":"写入超时时间"
 多台服务器换行配置另一台即可，示例(会根据操作类型轮循调用)：
     "host": "127.0.0.1","user": "root","password": "123456","port": "3306","unix_socket": "","client_flag": "0","character":"utf8mb4","read_timeout":"30","write_timeout":"60"
@@ -16,7 +16,7 @@ Mysql数据库映射，请先正确安装并运行 **mysql.8** 服务，如遇�
 ````
 
 ### 日志文件
-> *./build/bb.log*
+> *./build/13535.log*
 ### mode文件示例
 > include/mysqlorm/mode/dbA1_test.hpp
 

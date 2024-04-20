@@ -4,7 +4,7 @@
 #include <vector>
 #include <array>
 #include <string>
-#include "bb/secure/Log.h"
+#include "ccore/safe/Log.h"
 
 namespace bb {
     class dml_type {

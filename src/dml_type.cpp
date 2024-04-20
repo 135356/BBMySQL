@@ -108,7 +108,7 @@ namespace bb {
         std::string size_s = std::to_string(size);
         if (size > 16371) {
             size_s = "16371";
-            bb::secure::Log::obj().warn(key + " max 16371");
+            cc::safe::Log::obj().warn(key + " max 16371");
         }
         sql_arr_.push_back({key, "VARCHAR", size_s, "", "NOT NULL"});
         return this;
@@ -154,7 +154,7 @@ namespace bb {
             type == "FLOAT" || type == "DOUBLE" || type == "DECIMAL") {
             sql_arr_.back()[4] = "UNSIGNED " + sql_arr_.back()[4];
         } else {
-            bb::secure::Log::obj().warn(type + " 不支持 UNSIGNED");
+            cc::safe::Log::obj().warn(type + " 不支持 UNSIGNED");
         }
         return this;
     }
@@ -172,7 +172,7 @@ namespace bb {
             }
             sql_arr_.back()[4] += " UNIQUE";
         } else {
-            bb::secure::Log::obj().warn(type + " 不支持 UNIQUE");
+            cc::safe::Log::obj().warn(type + " 不支持 UNIQUE");
         }
         return this;
     }
@@ -188,7 +188,7 @@ namespace bb {
         if (type != "DATETIME" && type != "TIMESTAMP" && type != "TEXT") {
             sql_arr_.back()[4] += " DEFAULT '" + value + '\'';
         } else {
-            bb::secure::Log::obj().warn(type + " 不允许 DEFAULT");
+            cc::safe::Log::obj().warn(type + " 不允许 DEFAULT");
         }
         return this;
     }
@@ -198,7 +198,7 @@ namespace bb {
         if (type != "DATETIME" && type != "TIMESTAMP" && type != "TEXT") {
             sql_arr_.back()[4] += " DEFAULT " + std::to_string(value);
         } else {
-            bb::secure::Log::obj().warn(type + " 不允许 DEFAULT");
+            cc::safe::Log::obj().warn(type + " 不允许 DEFAULT");
         }
         return this;
     }
@@ -214,7 +214,7 @@ namespace bb {
             type == "FLOAT" || type == "DOUBLE" || type == "DECIMAL") {
             sql_arr_.back()[4] = "ZEROFILL " + sql_arr_.back()[4];
         } else {
-            bb::secure::Log::obj().warn(type + " 不支持 ZEROFILL");
+            cc::safe::Log::obj().warn(type + " 不支持 ZEROFILL");
         }
         return this;
     }

@@ -9,7 +9,7 @@ namespace bb {
 
     int dml::createDB() {
         if (DB_name_.size() > 54) {
-            bb::secure::Log::obj().warn("出错 createDB name大于54个字符");
+            cc::safe::Log::obj().warn("出错 createDB name大于54个字符");
             return -1;
         }
         //"CREATE DATABASE `" + name + "`;"
@@ -18,7 +18,7 @@ namespace bb {
     }
     int dml::createTable(std::function<void(dml *)> createF) {
         if (table_name_.size() > 54) {
-            bb::secure::Log::obj().warn("出错 createTable name大于54个字符");
+            cc::safe::Log::obj().warn("出错 createTable name大于54个字符");
             return -1;
         }
         createF(this);
@@ -236,7 +236,7 @@ namespace bb {
             return query_("INSERT INTO `" + table_name_ + "` " + k_0_arr + " VALUES " + v_0_arr + ";");
         }else{
             //字符串没有封口可能存在恶意行为
-            bb::secure::Log::obj().warn(DB_name_+",is_str_state错误");
+            cc::safe::Log::obj().warn(DB_name_+",is_str_state错误");
             return -1;
         }
     }
@@ -315,7 +315,7 @@ namespace bb {
             }
         }else{
             //字符串没有封口可能存在恶意行为
-            bb::secure::Log::obj().warn(DB_name_+",is_str_state错误");
+            cc::safe::Log::obj().warn(DB_name_+",is_str_state错误");
             return -1;
         }
         

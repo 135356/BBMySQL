@@ -10,7 +10,7 @@
 #include <mutex>
 #include <condition_variable>
 #include "mysql.h"
-#include "bb/secure/Log.h"
+#include "ccore/safe/Log.h"
 
 namespace bb {
     class ddl {
@@ -35,7 +35,7 @@ namespace bb {
         //修改语句的发送
         int upQueryF(const std::string &DB_name,const std::string &sql,bool is_use_db=true);
     protected:
-        std::string config_path_ = "./bb_mysqlorm_config.conf"; //配置文件
+        std::string config_path_ = "./13535_mysqlorm.conf"; //配置文件
         std::string current_DB_name_; //当前库名称
         std::set<char> str_filter_arr_{' ',';','\'','"'}; //需要过滤的字符
         //获取配置信息

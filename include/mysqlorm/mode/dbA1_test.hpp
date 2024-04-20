@@ -1,4 +1,5 @@
 #pragma once
+#include "ccore/safe/Log.h"
 #include "mysqlorm/sql/mode.h"
 
 class dbA1_test:public mode{
@@ -20,7 +21,7 @@ private:
         };
         //这里是初始化，初始化成功之后将根据mode的名称如(dbA1_test)，自动生成一个db_a1数据库 与 test数据表
         if(initializationF_() != 0){
-            bb::secure::Log::obj().error("mode创建的时候出现问题");
+            cc::safe::Log::obj().error("mode创建的时候出现问题");
         }
         //updateF_();
     }
@@ -37,11 +38,11 @@ protected:
     //更新
     void updateF_(){
         if(delTable() != 0){
-            bb::secure::Log::obj().error(DB_name_+",数据表删除失败");
+            cc::safe::Log::obj().error(DB_name_+",数据表删除失败");
         }
         if(delDB() != 0){
-            bb::secure::Log::obj().error(DB_name_+",数据库删除失败");
+            cc::safe::Log::obj().error(DB_name_+",数据库删除失败");
         }
-        bb::secure::Log::obj().info("更新完成请退出程序，并注释掉更新代码");
+        cc::safe::Log::obj().info("更新完成请退出程序，并注释掉更新代码");
     }
 };

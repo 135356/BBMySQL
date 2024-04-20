@@ -7,6 +7,7 @@ set_and_check(@PROJECT_NAME@_CMAKE "@PACKAGE_CMAKE@")
 
 #引入安装生成信息
 include("@PACKAGE_CMAKE@/@PROJECT_NAME@Targets.cmake")
+include_directories(${mysql_INCLUDES} ${mysqlorm_INCLUDES})
 
 #用于检查依赖项是否存在
 check_required_components(@PROJECT_NAME@)

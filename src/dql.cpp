@@ -128,7 +128,7 @@ namespace bb {
             }
         }else{
             //字符串没有封口可能存在恶意行为
-            bb::secure::Log::obj().warn(DB_name_+",is_str_state错误");
+            cc::safe::Log::obj().warn(DB_name_+",is_str_state错误");
             return this;
         }
         
@@ -162,7 +162,7 @@ namespace bb {
             }
             where_sql_ += k_v_arr[k_v_arr_size-1];
         }else{
-            bb::secure::Log::obj().warn(DB_name_+",where语法错误");
+            cc::safe::Log::obj().warn(DB_name_+",where语法错误");
         }
         return this;
     }
@@ -327,7 +327,7 @@ namespace bb {
         }
         MYSQL_RES *res; //返回行的一个查询结果集
         if (!(res = mysql_store_result(&ddl::obj().connect_arr_[ddl::obj().dql_index_].mysql))) {
-            bb::secure::Log::obj().warn("mysql_store_result 失败" + sql);
+            cc::safe::Log::obj().warn("mysql_store_result 失败" + sql);
             return this;
         }
 
@@ -520,7 +520,7 @@ namespace bb {
         }else{
             is = -1;
             //字符串没有封口可能存在恶意行为
-            bb::secure::Log::obj().warn(DB_name_+",is_str_state错误");
+            cc::safe::Log::obj().warn(DB_name_+",is_str_state错误");
         }
         where_sql_ = "";
         return is;
